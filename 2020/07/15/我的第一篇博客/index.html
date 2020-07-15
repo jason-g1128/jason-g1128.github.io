@@ -7,80 +7,80 @@
   
   
   
-  <title>Spring Cloud 0教程 | Hexo</title>
+  <title>Spring Cloud 0教程 | jason博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="0.学习目标 了解系统架构的演变 了解RPC与Http的区别  掌握HttpClient的简单使用  知道什么是SpringCloud 独立搭建Eureka注册中心 独立配置Robbin负载均衡">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring Cloud 0教程">
 <meta property="og:url" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="jason博客">
 <meta property="og:description" content="0.学习目标 了解系统架构的演变 了解RPC与Http的区别  掌握HttpClient的简单使用  知道什么是SpringCloud 独立搭建Eureka注册中心 独立配置Robbin负载均衡">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525529091749.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525529671801.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525530657919.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525530804753.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525532344817.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1526860071166.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525568965976.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525569352313.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525570921966.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets%5C1584040985888.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets%5C1584042173999.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets%5C1584042309808.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525575656796.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525575903675.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525576816916.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525576909381.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525576950842.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525576999052.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525577029150.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525577106711.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525577911331.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525593139364.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525594222408.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525595012668.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525597885059.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525598231170.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525598312368.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525604959508.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525605081129.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525609225152.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525613025086.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525613051210.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525613160920.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525615070033.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525615095693.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525615026937.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525615165157.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525617060656.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525617542081.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525618396076.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525619257397.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525619515586.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525619546904.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525620305704.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525620483637.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525620787090.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525620835911.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525622320277.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525622357371.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525622652849.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525622699666.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525622754316.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525622817451.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525622876842.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525623193949.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525653565855.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525653715488.png">
-<meta property="og:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525658269456.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525529091749.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525529671801.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525530657919.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525530804753.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525532344817.png">
+<meta property="og:image" content="http://yoursite.com/assets/1526860071166.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525568965976.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525569352313.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525570921966.png">
+<meta property="og:image" content="http://yoursite.com/assets%5C1584040985888.png">
+<meta property="og:image" content="http://yoursite.com/assets%5C1584042173999.png">
+<meta property="og:image" content="http://yoursite.com/assets%5C1584042309808.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525575656796.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525575903675.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525576816916.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525576909381.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525576950842.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525576999052.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525577029150.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525577106711.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525577911331.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525593139364.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525594222408.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525595012668.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525597885059.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525598231170.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525598312368.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525604959508.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525605081129.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525609225152.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525613025086.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525613051210.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525613160920.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525615070033.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525615095693.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525615026937.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525615165157.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525617060656.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525617542081.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525618396076.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525619257397.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525619515586.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525619546904.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525620305704.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525620483637.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525620787090.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525620835911.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525622320277.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525622357371.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525622652849.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525622699666.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525622754316.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525622817451.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525622876842.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525623193949.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525653565855.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525653715488.png">
+<meta property="og:image" content="http://yoursite.com/assets/1525658269456.png">
 <meta property="article:published_time" content="2020-07-15T06:06:34.000Z">
-<meta property="article:modified_time" content="2020-07-15T06:50:12.158Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:modified_time" content="2020-07-15T07:04:27.522Z">
+<meta property="article:author" content="jason">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/assets/1525529091749.png">
+<meta name="twitter:image" content="http://yoursite.com/assets/1525529091749.png">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="jason博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -130,7 +130,7 @@
             
         </a>
         <hgroup>
-          <h1 class="header-author"><a href="/">John Doe</a></h1>
+          <h1 class="header-author"><a href="/">jason</a></h1>
         </hgroup>
         
         
@@ -292,7 +292,7 @@
       <nav id="mobile-nav">
       <div class="overlay">
           <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">John Doe</a></h1>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">jason</a></h1>
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
@@ -302,7 +302,7 @@
                 
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">John Doe</a></h1>
+              <h1 class="header-author"><a href="/" title="回到主页">jason</a></h1>
             </hgroup>
             
             <nav class="header-menu">
@@ -384,7 +384,7 @@
 <h1 id="1-系统架构演变"><a href="#1-系统架构演变" class="headerlink" title="1.系统架构演变"></a>1.系统架构演变</h1><p>随着互联网的发展，网站应用的规模不断扩大。需求的激增，带来的是技术上的压力。系统架构也因此也不断的演进、升级、迭代。从单一应用，到垂直拆分，到分布式服务，到SOA，以及现在火热的微服务架构，还有在Google带领下来势汹涌的Service Mesh。我们到底是该乘坐微服务的船只驶向远方，还是偏安一隅得过且过？</p>
 <p>其实生活不止眼前的苟且，还有诗和远方。所以我们今天就回顾历史，看一看系统架构演变的历程；把握现在，学习现在最火的技术架构；展望未来，争取成为一名优秀的Java工程师。</p>
 <h2 id="1-1-集中式架构"><a href="#1-1-集中式架构" class="headerlink" title="1.1. 集中式架构"></a>1.1. 集中式架构</h2><p>当网站流量很小时，只需一个应用，将所有功能都部署在一起，以减少部署节点和成本。此时，用于简化增删改查工作量的数据访问框架(ORM)是影响项目开发的关键。</p>
-<p> <img src="assets/1525529091749.png" alt="1525529091749"></p>
+<p> <img src="/assets/1525529091749.png" alt="1525529091749"></p>
 <p>存在的问题：</p>
 <ul>
 <li>代码耦合，开发维护困难</li>
@@ -393,7 +393,7 @@
 <li>单点容错率低，并发能力差</li>
 </ul>
 <h2 id="1-2-垂直拆分"><a href="#1-2-垂直拆分" class="headerlink" title="1.2.垂直拆分"></a>1.2.垂直拆分</h2><p>当访问量逐渐增大，单一应用无法满足需求，此时为了应对更高的并发和业务需求，我们根据业务功能对系统进行拆分：</p>
-<p> <img src="assets/1525529671801.png" alt="1525529671801"></p>
+<p> <img src="/assets/1525529671801.png" alt="1525529671801"></p>
 <p>优点：</p>
 <ul>
 <li>系统拆分实现了流量分担，解决了并发问题</li>
@@ -405,7 +405,7 @@
 <li>系统间相互独立，会有很多重复开发工作，影响开发效率</li>
 </ul>
 <h2 id="1-3-分布式服务"><a href="#1-3-分布式服务" class="headerlink" title="1.3.分布式服务"></a>1.3.分布式服务</h2><p>当垂直应用越来越多，应用之间交互不可避免，将核心业务抽取出来，作为独立的服务，逐渐形成稳定的服务中心，使前端应用能更快速的响应多变的市场需求。此时，用于提高业务复用及整合的分布式调用是关键。</p>
-<p> <img src="assets/1525530657919.png" alt="1525530657919"></p>
+<p> <img src="/assets/1525530657919.png" alt="1525530657919"></p>
 <p>优点：</p>
 <ul>
 <li>将基础服务进行了抽取，系统间相互调用，提高了代码复用和开发效率</li>
@@ -415,7 +415,7 @@
 <li>系统间耦合度变高，调用关系错综复杂，难以维护</li>
 </ul>
 <h2 id="1-4-服务治理（SOA）"><a href="#1-4-服务治理（SOA）" class="headerlink" title="1.4.服务治理（SOA）"></a>1.4.服务治理（SOA）</h2><p>当服务越来越多，容量的评估，小服务资源的浪费等问题逐渐显现，此时需增加一个调度中心基于访问压力实时管理集群容量，提高集群利用率。此时，用于提高机器利用率的资源调度和治理中心(SOA)是关键</p>
-<p><img src="assets/1525530804753.png" alt="1525530804753"></p>
+<p><img src="/assets/1525530804753.png" alt="1525530804753"></p>
 <p>以前出现了什么问题？</p>
 <ul>
 <li>服务越来越多，需要管理每个服务的地址</li>
@@ -434,7 +434,7 @@
 <li>服务关系复杂，运维、测试部署困难，不符合DevOps思想</li>
 </ul>
 <h2 id="1-5-微服务"><a href="#1-5-微服务" class="headerlink" title="1.5.微服务"></a>1.5.微服务</h2><p>前面说的SOA，英文翻译过来是面向服务。微服务，似乎也是服务，都是对系统进行拆分。因此两者非常容易混淆，但其实缺有一些差别：</p>
-<p><img src="assets/1525532344817.png" alt="1525532344817"></p>
+<p><img src="/assets/1525532344817.png" alt="1525532344817"></p>
 <p>微服务的特点：</p>
 <ul>
 <li>单一职责：微服务中每一个服务都对应唯一的业务能力，做到单一职责</li>
@@ -450,7 +450,7 @@
 </li>
 </ul>
 <p>微服务结构图：</p>
-<p><img src="assets/1526860071166.png" alt="1526860071166"></p>
+<p><img src="/assets/1526860071166.png" alt="1526860071166"></p>
 <h1 id="2-远程调用方式"><a href="#2-远程调用方式" class="headerlink" title="2.远程调用方式"></a>2.远程调用方式</h1><p>无论是微服务还是SOA，都面临着服务间的远程调用。那么服务间的远程调用方式有哪些呢？</p>
 <p>常见的远程调用方式有以下几种：</p>
 <ul>
@@ -483,7 +483,7 @@
 </li>
 </ul>
 <p>RPC调用流程图：</p>
-<p><img src="assets/1525568965976.png" alt="1525568965976"></p>
+<p><img src="/assets/1525568965976.png" alt="1525568965976"></p>
 <p>想要了解详细的RPC实现，给大家推荐一篇文章：<a href="https://legacy.gitbook.com/book/huge0612/tour-of-rpc/details" target="_blank" rel="noopener">自己动手实现RPC</a></p>
 <h2 id="2-2-认识Http"><a href="#2-2-认识Http" class="headerlink" title="2.2.认识Http"></a>2.2.认识Http</h2><p>Http协议：超文本传输协议，是一种应用层协议。规定了网络传输的请求格式、响应格式、资源定位和操作的方式等。但是底层采用什么网络传输协议，并没有规定，不过现在都是采用TCP协议作为底层传输协议。说到这里，大家可能觉得，Http与RPC的远程调用非常像，都是按照某种规定好的数据格式进行网络通信，有请求，有响应。没错，在这点来看，两者非常相似，但是还是有一些细微差别。</p>
 <ul>
@@ -496,7 +496,7 @@
 </li>
 </ul>
 <p>例如我们通过浏览器访问网站，就是通过Http协议。只不过浏览器把请求封装，发起请求以及接收响应，解析响应的事情都帮我们做了。如果是不通过浏览器，那么这些事情都需要自己去完成。</p>
-<p><img src="assets/1525569352313.png" alt="1525569352313"></p>
+<p><img src="/assets/1525569352313.png" alt="1525569352313"></p>
 <h2 id="2-3-如何选择？"><a href="#2-3-如何选择？" class="headerlink" title="2.3.如何选择？"></a>2.3.如何选择？</h2><p>既然两种方式都可以实现远程调用，我们该如何选择呢？</p>
 <ul>
 <li>速度来看，RPC要比http更快，虽然底层都是TCP，但是http协议的信息往往比较臃肿，不过可以采用gzip压缩。</li>
@@ -519,7 +519,7 @@
 <p>接下来，我们就一起了解一款比较流行的客户端工具：HttpClient</p>
 <h2 id="3-1-HttpClient"><a href="#3-1-HttpClient" class="headerlink" title="3.1.HttpClient"></a>3.1.HttpClient</h2><h3 id="3-1-1-介绍"><a href="#3-1-1-介绍" class="headerlink" title="3.1.1.介绍"></a>3.1.1.介绍</h3><p>HttpClient是Apache公司的产品，是Http Components下的一个组件。</p>
 <p><a href="http://hc.apache.org/index.html" target="_blank" rel="noopener">官网地址：http://hc.apache.org/index.html</a></p>
-<p><img src="assets/1525570921966.png" alt="1525570921966"></p>
+<p><img src="/assets/1525570921966.png" alt="1525570921966"></p>
 <p>特点：</p>
 <ul>
 <li>基于标准、纯净的Java语言。实现了Http1.0和Http1.1</li>
@@ -530,14 +530,14 @@
 </ul>
 <h3 id="3-1-2-使用"><a href="#3-1-2-使用" class="headerlink" title="3.1.2.使用"></a>3.1.2.使用</h3><p>创建一个用于测试的demo案例工程：《http-demo》</p>
 <p>创建一个SpringBoot项目,选择依赖</p>
-<p><img src="assets%5C1584040985888.png" alt="1584040985888"></p>
+<p><img src="/assets%5C1584040985888.png" alt="1584040985888"></p>
 <p>并在pom.xml中手动添加httpclient的依赖</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;org.apache.httpcomponents&lt;&#x2F;groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;httpclient&lt;&#x2F;artifactId&gt;</span><br><span class="line">	&lt;version&gt;4.5.1&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
 
 <p>并将以下内容去掉</p>
-<p><img src="assets%5C1584042173999.png" alt="1584042173999"></p>
+<p><img src="/assets%5C1584042173999.png" alt="1584042173999"></p>
 <p>在test目录下创建HttpTests测试类</p>
-<p><img src="assets%5C1584042309808.png" alt="1584042309808"></p>
+<p><img src="/assets%5C1584042309808.png" alt="1584042309808"></p>
 <p>代码如下:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">package com.hr;</span><br><span class="line"></span><br><span class="line">import org.apache.http.client.methods.HttpGet;</span><br><span class="line">import org.apache.http.client.methods.HttpPost;</span><br><span class="line">import org.apache.http.impl.client.BasicResponseHandler;</span><br><span class="line">import org.apache.http.impl.client.CloseableHttpClient;</span><br><span class="line">import org.apache.http.impl.client.HttpClients;</span><br><span class="line">import org.junit.Before;</span><br><span class="line">import org.junit.Test;</span><br><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line">public class HttpTests &#123;</span><br><span class="line"></span><br><span class="line">    CloseableHttpClient httpClient;</span><br><span class="line"></span><br><span class="line">    @Before</span><br><span class="line">    public void init() &#123;</span><br><span class="line">    	&#x2F;&#x2F;对象初始化</span><br><span class="line">        httpClient &#x3D; HttpClients.createDefault();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F;测试post请求</span><br><span class="line">    @Test</span><br><span class="line">    public void testPost() throws IOException &#123;</span><br><span class="line">        HttpPost request &#x3D; new HttpPost(&quot;http:&#x2F;&#x2F;www.baidu.com&quot;);</span><br><span class="line">        String response &#x3D; this.httpClient.execute(request, new BasicResponseHandler());</span><br><span class="line">        System.out.println(response);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F;测试get请求</span><br><span class="line">    @Test</span><br><span class="line">    public void testGet() throws IOException &#123;</span><br><span class="line">        HttpGet request &#x3D; new HttpGet(&quot;http:&#x2F;&#x2F;www.oschina.net&#x2F;&quot;);</span><br><span class="line">        request.setHeader(&quot;User-Agent&quot;,</span><br><span class="line">                &quot;Mozilla&#x2F;5.0 (Windows NT 10.0; WOW64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;56.0.2924.87 Safari&#x2F;537.36&quot;);</span><br><span class="line">        String response &#x3D; this.httpClient.execute(request, new BasicResponseHandler());</span><br><span class="line">        System.out.println(response);</span><br><span class="line">    &#125;</span><br><span class="line">	&#x2F;&#x2F;测试get请求本地contrller</span><br><span class="line">    @Test</span><br><span class="line">    public void testGetLocal() throws IOException &#123;</span><br><span class="line">        HttpGet request &#x3D; new HttpGet(&quot;http:&#x2F;&#x2F;localhost:8080&#x2F;hello&quot;);</span><br><span class="line">        String response &#x3D; this.httpClient.execute(request, new BasicResponseHandler());</span><br><span class="line">        System.out.println(response);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -598,9 +598,9 @@
 <li>Hystix：熔断器</li>
 </ul>
 <p>以上只是其中一部分，架构图：</p>
-<p><img src="assets/1525575656796.png" alt="1525575656796"></p>
+<p><img src="/assets/1525575656796.png" alt="1525575656796"></p>
 <h2 id="4-2-版本"><a href="#4-2-版本" class="headerlink" title="4.2.版本"></a>4.2.版本</h2><p>SpringCloud的版本命名比较特殊，因为它不是一个组件，而是许多组件的集合，它的命名是以A到Z的为首字母的一些单词组成：</p>
-<p> <img src="assets/1525575903675.png" alt="1525575903675"></p>
+<p> <img src="/assets/1525575903675.png" alt="1525575903675"></p>
 <p>我们在项目中，会是以Finchley的版本。</p>
 <p>其中包含的组件，也都有各自的版本，如下表：</p>
 <table>
@@ -725,17 +725,17 @@
 <h1 id="5-微服务场景模拟"><a href="#5-微服务场景模拟" class="headerlink" title="5.微服务场景模拟"></a>5.微服务场景模拟</h1><p>首先，我们需要模拟一个服务调用的场景。方便后面学习微服务架构</p>
 <h2 id="5-1-服务提供者"><a href="#5-1-服务提供者" class="headerlink" title="5.1.服务提供者"></a>5.1.服务提供者</h2><p>我们新建一个项目，对外提供查询用户的服务。</p>
 <h3 id="5-1-1-Spring脚手架创建工程"><a href="#5-1-1-Spring脚手架创建工程" class="headerlink" title="5.1.1.Spring脚手架创建工程"></a>5.1.1.Spring脚手架创建工程</h3><p>借助于Spring提供的快速搭建工具：</p>
-<p><img src="assets/1525576816916.png" alt="1525576816916"></p>
+<p><img src="/assets/1525576816916.png" alt="1525576816916"></p>
 <p>填写项目信息：</p>
-<p> <img src="assets/1525576909381.png" alt="1525576909381"></p>
+<p> <img src="/assets/1525576909381.png" alt="1525576909381"></p>
 <p>添加web依赖：</p>
-<p><img src="assets/1525576950842.png" alt="1525576950842"></p>
+<p><img src="/assets/1525576950842.png" alt="1525576950842"></p>
 <p>添加mybatis依赖：</p>
-<p><img src="assets/1525576999052.png" alt="1525576999052"></p>
+<p><img src="/assets/1525576999052.png" alt="1525576999052"></p>
 <p>填写项目位置：</p>
-<p><img src="assets/1525577029150.png" alt="1525577029150"></p>
+<p><img src="/assets/1525577029150.png" alt="1525577029150"></p>
 <p>生成的项目结构：</p>
-<p> <img src="assets/1525577106711.png" alt="1525577106711"></p>
+<p> <img src="/assets/1525577106711.png" alt="1525577106711"></p>
 <p>依赖也已经全部自动引入：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.leyou.demo<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>user-service-demo<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>user-service-demo<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">description</span>&gt;</span>Demo project for Spring Boot<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.1.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">project.reporting.outputEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.reporting.outputEncoding</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">java.version</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -761,9 +761,9 @@
 
 
 <p>项目结构：</p>
-<p> <img src="assets/1525577911331.png" alt="1525577911331"></p>
+<p> <img src="/assets/1525577911331.png" alt="1525577911331"></p>
 <h3 id="5-1-3-启动并测试："><a href="#5-1-3-启动并测试：" class="headerlink" title="5.1.3.启动并测试："></a>5.1.3.启动并测试：</h3><p>启动项目，访问接口：<a href="http://localhost:8081/user/7" target="_blank" rel="noopener">http://localhost:8081/user/7</a></p>
-<p> <img src="assets/1525593139364.png" alt="1525593139364"></p>
+<p> <img src="/assets/1525593139364.png" alt="1525593139364"></p>
 <h2 id="5-2-服务调用者"><a href="#5-2-服务调用者" class="headerlink" title="5.2.服务调用者"></a>5.2.服务调用者</h2><h3 id="5-2-1-创建工程"><a href="#5-2-1-创建工程" class="headerlink" title="5.2.1.创建工程"></a>5.2.1.创建工程</h3><p>与上面类似，这里不再赘述，需要注意的是，我们调用user-service的功能，因此不需要mybatis相关依赖了。</p>
 <p>pom：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.leyou.demo<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>user-consumer-demo<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>user-consumer-demo<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">description</span>&gt;</span>Demo project for Spring Boot<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.1.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">project.reporting.outputEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.reporting.outputEncoding</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">java.version</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 添加OkHttp支持 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.squareup.okhttp3<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>okhttp<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>3.9.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -787,7 +787,7 @@
 
 
 <h3 id="5-2-3-启动测试："><a href="#5-2-3-启动测试：" class="headerlink" title="5.2.3.启动测试："></a>5.2.3.启动测试：</h3><p>因为我们没有配置端口，那么默认就是8080，我们访问：<a href="http://localhost:8080/consume?ids=6,7,8" target="_blank" rel="noopener">http://localhost:8080/consume?ids=6,7,8</a></p>
-<p> <img src="assets/1525594222408.png" alt="1525594222408"></p>
+<p> <img src="/assets/1525594222408.png" alt="1525594222408"></p>
 <p>一个简单的远程服务调用案例就实现了。</p>
 <h2 id="5-3-有没有问题？"><a href="#5-3-有没有问题？" class="headerlink" title="5.3.有没有问题？"></a>5.3.有没有问题？</h2><p>简单回顾一下，刚才我们写了什么：</p>
 <ul>
@@ -795,7 +795,7 @@
 <li>consumer-demo：一个服务调用者，通过RestTemplate远程调用user-service-demo</li>
 </ul>
 <p>流程如下：</p>
-<p><img src="assets/1525595012668.png" alt="1525595012668"></p>
+<p><img src="/assets/1525595012668.png" alt="1525595012668"></p>
 <p>存在什么问题？</p>
 <ul>
 <li>在consumer中，我们把url地址硬编码到了代码中，不方便后期维护</li>
@@ -837,7 +837,7 @@
 <h2 id="6-2-原理图"><a href="#6-2-原理图" class="headerlink" title="6.2.原理图"></a>6.2.原理图</h2><blockquote>
 <p>基本架构：</p>
 </blockquote>
-<p> <img src="assets/1525597885059.png" alt="1525597885059"></p>
+<p> <img src="/assets/1525597885059.png" alt="1525597885059"></p>
 <ul>
 <li>Eureka：就是服务注册中心（可以是一个集群），对外暴露自己的地址</li>
 <li>提供者：启动后向Eureka注册自己信息（地址，提供什么服务）</li>
@@ -846,9 +846,9 @@
 </ul>
 <h2 id="6-3-入门案例"><a href="#6-3-入门案例" class="headerlink" title="6.3.入门案例"></a>6.3.入门案例</h2><h3 id="6-3-1-编写EurekaServer"><a href="#6-3-1-编写EurekaServer" class="headerlink" title="6.3.1.编写EurekaServer"></a>6.3.1.编写EurekaServer</h3><p>接下来我们创建一个项目，启动一个EurekaServer：</p>
 <p>依然使用spring提供的快速搭建工具：</p>
-<p><img src="assets/1525598231170.png" alt="1525598231170"></p>
+<p><img src="/assets/1525598231170.png" alt="1525598231170"></p>
 <p>选择依赖：</p>
-<p><img src="assets/1525598312368.png" alt="1525598312368"></p>
+<p><img src="/assets/1525598312368.png" alt="1525598312368"></p>
 <p>完整的Pom文件：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.mall.demo<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>eureka-demo<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>eureka-demo<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">description</span>&gt;</span>Demo project for Spring Boot<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.1.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">project.reporting.outputEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.reporting.outputEncoding</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">java.version</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- SpringCloud版本，是最新的F系列 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">spring-cloud.version</span>&gt;</span>Finchley.RC1<span class="tag">&lt;/<span class="name">spring-cloud.version</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- Eureka服务端 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- SpringCloud依赖，一定要放到dependencyManagement中，起到管理版本的作用即可 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring-cloud.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">repositories</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">id</span>&gt;</span>spring-milestones<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">name</span>&gt;</span>Spring Milestones<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">url</span>&gt;</span>https://repo.spring.io/milestone<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -859,8 +859,8 @@
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">10086</span> <span class="comment"># 端口</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">eureka-server</span> <span class="comment"># 应用名称，会在Eureka中显示</span></span><br><span class="line"><span class="attr">eureka:</span></span><br><span class="line">  <span class="attr">client:</span></span><br><span class="line">    <span class="attr">register-with-eureka:</span> <span class="literal">false</span> <span class="comment"># 是否注册自己的信息到EurekaServer，默认是true</span></span><br><span class="line">    <span class="attr">fetch-registry:</span> <span class="literal">false</span> <span class="comment"># 是否拉取其它服务的信息，默认是true</span></span><br><span class="line">    <span class="attr">service-url:</span> <span class="comment"># EurekaServer的地址，现在是自己的地址，如果是集群，需要加上其它Server的地址。</span></span><br><span class="line">      <span class="attr">defaultZone:</span> <span class="string">http://127.0.0.1:$&#123;server.port&#125;/eureka</span></span><br></pre></td></tr></table></figure>
 
 <p>启动服务，并访问：<a href="http://127.0.0.1:10086/eureka" target="_blank" rel="noopener">http://127.0.0.1:10086/eureka</a></p>
-<p><img src="assets/1525604959508.png" alt="1525604959508"></p>
-<p><img src="assets/1525605081129.png" alt="1525605081129"></p>
+<p><img src="/assets/1525604959508.png" alt="1525604959508"></p>
+<p><img src="/assets/1525605081129.png" alt="1525605081129"></p>
 <h3 id="6-3-2-将user-service注册到Eureka"><a href="#6-3-2-将user-service注册到Eureka" class="headerlink" title="6.3.2.将user-service注册到Eureka"></a>6.3.2.将user-service注册到Eureka</h3><p>注册服务，就是在服务上添加Eureka的客户端依赖，客户端代码会自动把服务注册到EurekaServer中。</p>
 <blockquote>
 <p>我们在user-service-demo中添加Eureka客户端依赖：</p>
@@ -894,7 +894,7 @@
 <blockquote>
 <p>重启项目，访问<a href="http://127.0.0.1:10086/eureka" target="_blank" rel="noopener">Eureka监控页面</a>查看</p>
 </blockquote>
-<p><img src="assets/1525609225152.png" alt="1525609225152"></p>
+<p><img src="/assets/1525609225152.png" alt="1525609225152"></p>
 <p>我们发现user-service服务已经注册成功了</p>
 <h3 id="6-3-3-消费者从Eureka获取服务"><a href="#6-3-3-消费者从Eureka获取服务" class="headerlink" title="6.3.3.消费者从Eureka获取服务"></a>6.3.3.消费者从Eureka获取服务</h3><p>接下来我们修改consumer-demo，尝试从EurekaServer获取服务。</p>
 <p>方法与消费者类似，只需要在项目中添加EurekaClient依赖，就可以通过服务名称来获取信息了！</p>
@@ -919,11 +919,11 @@
 
 
 <p>5）Debug跟踪运行：</p>
-<p><img src="assets/1525613025086.png" alt="1525613025086"></p>
+<p><img src="/assets/1525613025086.png" alt="1525613025086"></p>
 <p>生成的URL：</p>
-<p><img src="assets/1525613051210.png" alt="1525613051210"></p>
+<p><img src="/assets/1525613051210.png" alt="1525613051210"></p>
 <p>访问结果：</p>
-<p> <img src="assets/1525613160920.png" alt="1525613160920"></p>
+<p> <img src="/assets/1525613160920.png" alt="1525613160920"></p>
 <h2 id="6-4-Eureka详解"><a href="#6-4-Eureka详解" class="headerlink" title="6.4.Eureka详解"></a>6.4.Eureka详解</h2><p>接下来我们详细讲解Eureka的原理及配置。</p>
 <h3 id="6-4-1-基础架构"><a href="#6-4-1-基础架构" class="headerlink" title="6.4.1.基础架构"></a>6.4.1.基础架构</h3><p>Eureka架构中的三个核心角色：</p>
 <ul>
@@ -958,12 +958,12 @@
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">10087</span> <span class="comment"># 端口</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">eureka-server</span> <span class="comment"># 应用名称，会在Eureka中显示</span></span><br><span class="line"><span class="attr">eureka:</span></span><br><span class="line">  <span class="attr">client:</span></span><br><span class="line">    <span class="attr">service-url:</span> <span class="comment"># 配置其他Eureka服务的地址，而不是自己，比如10087</span></span><br><span class="line">      <span class="attr">defaultZone:</span> <span class="string">http://127.0.0.1:10086/eureka</span></span><br></pre></td></tr></table></figure>
 
 <p>注意：idea中一个应用不能启动两次，我们需要重新配置一个启动器：</p>
-<p> <img src="assets/1525615070033.png" alt="1525615070033"></p>
-<p> <img src="assets/1525615095693.png" alt="1525615095693"></p>
-<p><img src="assets/1525615026937.png" alt="1525615026937"></p>
+<p> <img src="/assets/1525615070033.png" alt="1525615070033"></p>
+<p> <img src="/assets/1525615095693.png" alt="1525615095693"></p>
+<p><img src="/assets/1525615026937.png" alt="1525615026937"></p>
 <p>然后启动即可。</p>
 <p>3）启动测试：</p>
-<p><img src="assets/1525615165157.png" alt="1525615165157"></p>
+<p><img src="/assets/1525615165157.png" alt="1525615165157"></p>
 <p>4）客户端注册服务到集群</p>
 <p>因为EurekaServer不止一个，因此注册服务的时候，service-url参数需要变化：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">eureka:</span></span><br><span class="line">  <span class="attr">client:</span></span><br><span class="line">    <span class="attr">service-url:</span> <span class="comment"># EurekaServer地址,多个地址以','隔开</span></span><br><span class="line">      <span class="attr">defaultZone:</span> <span class="string">http://127.0.0.1:10086/eureka,http://127.0.0.1:10087/eureka</span></span><br></pre></td></tr></table></figure>
@@ -999,7 +999,7 @@
 </blockquote>
 <p>先来看一下服务状态信息：</p>
 <p>在Eureka监控页面，查看服务注册信息：</p>
-<p><img src="assets/1525617060656.png" alt="1525617060656"></p>
+<p><img src="/assets/1525617060656.png" alt="1525617060656"></p>
 <p>在status一列中，显示以下信息：</p>
 <ul>
 <li>UP(1)：代表现在是启动了1个示例，没有集群</li>
@@ -1013,7 +1013,7 @@
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">eureka:</span></span><br><span class="line">  <span class="attr">instance:</span></span><br><span class="line">    <span class="attr">instance-id:</span> <span class="string">$&#123;spring.application.name&#125;:$&#123;server.port&#125;</span></span><br></pre></td></tr></table></figure>
 
 <p>重启服务再试试看：</p>
-<p><img src="assets/1525617542081.png" alt="1525617542081"></p>
+<p><img src="/assets/1525617542081.png" alt="1525617542081"></p>
 <h3 id="6-4-4-服务消费者"><a href="#6-4-4-服务消费者" class="headerlink" title="6.4.4.服务消费者"></a>6.4.4.服务消费者</h3><blockquote>
 <p>获取服务列表</p>
 </blockquote>
@@ -1032,7 +1032,7 @@
 <p>自我保护</p>
 </blockquote>
 <p>我们关停一个服务，就会在Eureka面板看到一条警告：</p>
-<p><img src="assets/1525618396076.png" alt="1525618396076"></p>
+<p><img src="/assets/1525618396076.png" alt="1525618396076"></p>
 <p>这是触发了Eureka的自我保护机制。当一个服务未按时进行心跳续约时，Eureka会统计最近15分钟心跳失败的服务实例的比例是否超过了85%。在生产环境下，因为网络延迟等原因，心跳失败实例的比例很有可能超标，但是此时就把服务剔除列表并不妥当，因为服务可能没有宕机。Eureka就会把当前实例的注册信息保护起来，不予剔除。生产环境下这很有效，保证了大多数服务依然可用。</p>
 <p>但是这给我们的开发带来了麻烦， 因此开发阶段我们都会关闭自我保护模式：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">eureka:</span></span><br><span class="line">  <span class="attr">server:</span></span><br><span class="line">    <span class="attr">enable-self-preservation:</span> <span class="literal">false</span> <span class="comment"># 关闭自我保护模式（缺省为打开）</span></span><br><span class="line">    <span class="attr">eviction-interval-timer-in-ms:</span> <span class="number">1000</span> <span class="comment"># 扫描失效服务的间隔时间（缺省为60*1000ms）</span></span><br></pre></td></tr></table></figure>
@@ -1044,12 +1044,12 @@
 <p>一般这种情况下我们就需要编写负载均衡算法，在多个实例列表中进行选择。</p>
 <p>不过Eureka中已经帮我们集成了负载均衡组件：Ribbon，简单修改代码即可使用。</p>
 <p>什么是Ribbon：</p>
-<p><img src="assets/1525619257397.png" alt="1525619257397"></p>
+<p><img src="/assets/1525619257397.png" alt="1525619257397"></p>
 <p>接下来，我们就来使用Ribbon实现负载均衡。</p>
 <h2 id="7-1-启动两个服务实例"><a href="#7-1-启动两个服务实例" class="headerlink" title="7.1.启动两个服务实例"></a>7.1.启动两个服务实例</h2><p>首先我们启动两个user-service实例，一个8081，一个8082。</p>
-<p> <img src="assets/1525619515586.png" alt="1525619515586"></p>
+<p> <img src="/assets/1525619515586.png" alt="1525619515586"></p>
 <p>Eureka监控面板：</p>
-<p><img src="assets/1525619546904.png" alt="1525619546904"></p>
+<p><img src="/assets/1525619546904.png" alt="1525619546904"></p>
 <h2 id="7-2-开启负载均衡"><a href="#7-2-开启负载均衡" class="headerlink" title="7.2.开启负载均衡"></a>7.2.开启负载均衡</h2><p>因为Eureka中已经集成了Ribbon，所以我们无需引入新的依赖。直接修改代码：</p>
 <p>在RestTemplate的配置方法上添加<code>@LoadBalanced</code>注解：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="meta">@LoadBalanced</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> RestTemplate <span class="title">restTemplate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> RestTemplate(<span class="keyword">new</span> OkHttp3ClientHttpRequestFactory());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1060,51 +1060,51 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> RestTemplate restTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> DiscoveryClient discoveryClient;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;User&gt; <span class="title">queryUserByIds</span><span class="params">(List&lt;Long&gt; ids)</span> </span>&#123;</span><br><span class="line">        List&lt;User&gt; users = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="comment">// 地址直接写服务名称即可</span></span><br><span class="line">        String baseUrl = <span class="string">"http://user-service/user/"</span>;</span><br><span class="line">        ids.forEach(id -&gt; &#123;</span><br><span class="line">            <span class="comment">// 我们测试多次查询，</span></span><br><span class="line">            users.add(<span class="keyword">this</span>.restTemplate.getForObject(baseUrl + id, User<span class="class">.<span class="keyword">class</span>))</span>;</span><br><span class="line">            <span class="comment">// 每次间隔500毫秒</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">500</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">return</span> users;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>访问页面，查看结果：</p>
-<p> <img src="assets/1525620305704.png" alt="1525620305704"></p>
+<p> <img src="/assets/1525620305704.png" alt="1525620305704"></p>
 <p>完美！</p>
 <h2 id="7-3-源码跟踪"><a href="#7-3-源码跟踪" class="headerlink" title="7.3.源码跟踪"></a>7.3.源码跟踪</h2><p>为什么我们只输入了service名称就可以访问了呢？之前还要获取ip和端口。</p>
 <p>显然有人帮我们根据service名称，获取到了服务实例的ip和端口。它就是<code>LoadBalancerInterceptor</code></p>
 <p>我们进行源码跟踪：</p>
-<p><img src="assets/1525620483637.png" alt="1525620483637"></p>
+<p><img src="/assets/1525620483637.png" alt="1525620483637"></p>
 <p>继续跟入execute方法：发现获取了8082端口的服务</p>
-<p><img src="assets/1525620787090.png" alt="1525620787090"></p>
+<p><img src="/assets/1525620787090.png" alt="1525620787090"></p>
 <p>再跟下一次，发现获取的是8081：</p>
-<p> <img src="assets/1525620835911.png" alt="1525620835911"></p>
+<p> <img src="/assets/1525620835911.png" alt="1525620835911"></p>
 <h2 id="7-4-负载均衡策略"><a href="#7-4-负载均衡策略" class="headerlink" title="7.4.负载均衡策略"></a>7.4.负载均衡策略</h2><p>Ribbon默认的负载均衡策略是简单的轮询，我们可以测试一下：</p>
 <p>编写测试类，在刚才的源码中我们看到拦截中是使用RibbonLoadBalanceClient来进行负载均衡的，其中有一个choose方法，是这样介绍的：</p>
-<p> <img src="assets/1525622320277.png" alt="1525622320277"></p>
+<p> <img src="/assets/1525622320277.png" alt="1525622320277"></p>
 <p>现在这个就是负载均衡获取实例的方法。</p>
 <p>我们对注入这个类的对象，然后对其测试：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringRunner<span class="class">.<span class="keyword">class</span>)</span></span><br><span class="line"><span class="class">@<span class="title">SpringBootTest</span>(<span class="title">classes</span> </span>= UserConsumerDemoApplication<span class="class">.<span class="keyword">class</span>)</span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">LoadBalanceTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    RibbonLoadBalancerClient client;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">            ServiceInstance instance = <span class="keyword">this</span>.client.choose(<span class="string">"user-service"</span>);</span><br><span class="line">            System.out.println(instance.getHost() + <span class="string">":"</span> + instance.getPort());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>结果：</p>
-<p> <img src="assets/1525622357371.png" alt="1525622357371"></p>
+<p> <img src="/assets/1525622357371.png" alt="1525622357371"></p>
 <p>符合了我们的预期推测，确实是轮询方式。</p>
 <p>我们是否可以修改负载均衡的策略呢？</p>
 <p>继续跟踪源码，发现这么一段代码：</p>
-<p> <img src="assets/1525622652849.png" alt="1525622652849"></p>
+<p> <img src="/assets/1525622652849.png" alt="1525622652849"></p>
 <p>我们看看这个rule是谁：</p>
-<p> <img src="assets/1525622699666.png" alt="1525622699666"></p>
+<p> <img src="/assets/1525622699666.png" alt="1525622699666"></p>
 <p>这里的rule默认值是一个<code>RoundRobinRule</code>，看类的介绍：</p>
-<p> <img src="assets/1525622754316.png" alt="1525622754316"></p>
+<p> <img src="/assets/1525622754316.png" alt="1525622754316"></p>
 <p>这不就是轮询的意思嘛。</p>
 <p>我们注意到，这个类其实是实现了接口IRule的，查看一下：</p>
-<p> <img src="assets/1525622817451.png" alt="1525622817451"></p>
+<p> <img src="/assets/1525622817451.png" alt="1525622817451"></p>
 <p>定义负载均衡的规则接口。</p>
 <p>它有以下实现：</p>
-<p> <img src="assets/1525622876842.png" alt="1525622876842"></p>
+<p> <img src="/assets/1525622876842.png" alt="1525622876842"></p>
 <p>SpringBoot也帮我们提供了修改负载均衡规则的配置入口：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">user-service:</span></span><br><span class="line">  <span class="attr">ribbon:</span></span><br><span class="line">    <span class="attr">NFLoadBalancerRuleClassName:</span> <span class="string">com.netflix.loadbalancer.RandomRule</span></span><br></pre></td></tr></table></figure>
 
 <p>格式是：<code>{服务名称}.ribbon.NFLoadBalancerRuleClassName</code>，值就是IRule的实现类。</p>
 <p>再次测试，发现结果变成了随机：</p>
-<p> <img src="assets/1525623193949.png" alt="1525623193949"></p>
+<p> <img src="/assets/1525623193949.png" alt="1525623193949"></p>
 <h2 id="7-5-重试机制"><a href="#7-5-重试机制" class="headerlink" title="7.5.重试机制"></a>7.5.重试机制</h2><p>Eureka的服务治理强调了CAP原则中的AP，即可用性和可靠性。它与Zookeeper这一类强调CP（一致性，可靠性）的服务治理框架最大的区别在于：Eureka为了实现更高的服务可用性，牺牲了一定的一致性，极端情况下它宁愿接收故障实例也不愿丢掉健康实例，正如我们上面所说的自我保护机制。</p>
 <p>但是，此时如果我们调用了这些不正常的服务，调用就会失败，从而导致其它服务不能正常工作！这显然不是我们愿意看到的。</p>
 <p>我们现在关闭一个user-service实例：</p>
-<p> <img src="assets/1525653565855.png" alt="1525653565855"></p>
+<p> <img src="/assets/1525653565855.png" alt="1525653565855"></p>
 <p>因为服务剔除的延迟，consumer并不会立即得到最新的服务列表，此时再次访问你会得到错误提示：</p>
-<p><img src="assets/1525653715488.png" alt="1525653715488"></p>
+<p><img src="/assets/1525653715488.png" alt="1525653715488"></p>
 <p>但是此时，8081服务其实是正常的。</p>
 <p>因此Spring Cloud 整合了Spring Retry 来增强RestTemplate的重试能力，当一次服务调用失败后，不会立即抛出一次，而是再次重试另一个服务。</p>
 <p>只需要简单配置即可实现Ribbon的重试：</p>
@@ -1117,7 +1117,7 @@
 
 
 <p>我们重启user-consumer-demo，测试，发现即使user-service2宕机，也能通过另一台服务实例获取到结果！</p>
-<p> <img src="assets/1525658269456.png" alt="1525658269456"></p>
+<p> <img src="/assets/1525658269456.png" alt="1525658269456"></p>
 
       
     </div>
@@ -1127,12 +1127,12 @@
     
     <div class="copyright">
         <p><span>本文标题:</span><a  href="/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">Spring Cloud 0教程</a></p>
-        <p><span>文章作者:</span><a  href="/" title="访问 John Doe 的个人博客">John Doe</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 jason 的个人博客">jason</a></p>
         <p><span>发布时间:</span>2020年07月15日 - 14时06分</p>
-        <p><span>最后更新:</span>2020年07月15日 - 14时50分</p>
+        <p><span>最后更新:</span>2020年07月15日 - 15时04分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" title="Spring Cloud 0教程">http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/　　作者: John Doe" title=""></span>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2020/07/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/　　作者: jason" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -1275,7 +1275,7 @@
     <div class="outer">
         <div id="footer-info">
             <div class="footer-left">
-                &copy; 2020 John Doe
+                &copy; 2020 jason
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
